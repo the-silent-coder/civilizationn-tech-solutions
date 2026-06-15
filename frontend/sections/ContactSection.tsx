@@ -7,11 +7,11 @@ export default function ContactSection() {
       <div className="max-w-3xl mx-auto text-center">
 
         <h2 className="text-4xl font-bold">
-          Let's Build Something Amazing
+          Let&apos;s Build Something Amazing
         </h2>
 
         <p className="mt-6 text-gray-600">
-          Reach out to us and let's discuss your next big idea.
+          Reach out to us and let&apos;s discuss your next big idea.
         </p>
 
         <button

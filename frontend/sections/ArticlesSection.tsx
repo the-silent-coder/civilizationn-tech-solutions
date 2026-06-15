@@ -1,5 +1,8 @@
+import FadeIn from "../components/FadeIn";
+
 export default function ArticlesSection() {
   return (
+    <FadeIn>
     <section
       id="articles"
       className="py-24 px-6 max-w-6xl mx-auto"
@@ -30,5 +33,6 @@ export default function ArticlesSection() {
         ))}
       </div>
     </section>
+    </FadeIn>
   );
 }

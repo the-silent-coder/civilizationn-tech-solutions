@@ -1,27 +1,71 @@
+import HeroBadge from "../components/HeroBadge";
+import HeroCTA from "../components/HeroCTA";
+import HeroTrustIndicators from "../components/HeroTrustIndicators";
+import HeroAnimation from "../components/HeroAnimation";
+
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-4xl text-center">
+    <section
+      className="
+        min-h-screen
+        bg-black
+        text-white
+        px-6
+        py-20
+        flex
+        items-center
+      "
+    >
+      <div
+        className="
+          max-w-7xl
+          mx-auto
+          grid
+          lg:grid-cols-2
+          gap-16
+          items-center
+        "
+      >
 
-        <h1 className="text-5xl md:text-7xl font-bold">
-          Any Tech Solutions You Need,
-          We Have Your Back.
-        </h1>
+        <div>
 
-        <p className="mt-6 text-lg text-gray-600">
-          We transform ideas into scalable digital solutions,
-          helping businesses grow with confidence.
-        </p>
+          <HeroBadge />
 
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-black text-white px-6 py-3 rounded-lg">
-            Explore Services
-          </button>
+          <h1
+            className="
+              text-5xl
+              md:text-7xl
+              font-bold
+              leading-tight
+            "
+          >
+            Engineering Tomorrow&apos;s
 
-          <button className="border px-6 py-3 rounded-lg">
-            Contact Us
-          </button>
+            <span className="block text-cyan-400">
+              Digital Success Stories
+            </span>
+          </h1>
+
+          <p
+            className="
+              mt-8
+              text-lg
+              text-gray-300
+              leading-8
+            "
+          >
+            From ServiceNow solutions to custom
+            applications, we transform ambitious ideas
+            into scalable realities.
+          </p>
+
+          <HeroCTA />
+
+          <HeroTrustIndicators />
+
         </div>
+
+        <HeroAnimation />
 
       </div>
     </section>

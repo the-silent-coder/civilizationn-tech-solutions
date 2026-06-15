@@ -1,5 +1,8 @@
+import FadeIn from "../components/FadeIn";
+
 export default function TestimonialsSection() {
   return (
+    <FadeIn>
     <section
       id="testimonials"
       className="bg-gray-50 py-24 px-6"
@@ -18,7 +21,7 @@ export default function TestimonialsSection() {
               className="bg-white rounded-xl shadow p-6"
             >
               <p className="italic">
-                "Excellent service and outstanding support."
+                &ldquo;Excellent service and outstanding support.&rdquo;
               </p>
 
               <p className="mt-6 font-semibold">
@@ -31,5 +34,6 @@ export default function TestimonialsSection() {
 
       </div>
     </section>
+    </FadeIn>
   );
 }

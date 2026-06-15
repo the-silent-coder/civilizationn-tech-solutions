@@ -1,3 +1,5 @@
+import FadeIn from "../components/FadeIn";
+
 const services = [
   "ServiceNow Development",
   "Web Development",
@@ -24,8 +26,7 @@ export default function ServicesSection() {
           {services.map((service) => (
             <div
               key={service}
-              className="p-6 bg-white rounded-xl shadow"
-            >
+              className="p-6 bg-white rounded-xl shadow transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
               <h3 className="font-semibold text-xl">
                 {service}
               </h3>
