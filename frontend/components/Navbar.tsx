@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b shadow-sm">
+    <nav className="sticky top-0 z-50 bg-background text-foreground border border-foreground/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
         <h2 className="text-2xl font-bold">
@@ -33,6 +34,8 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
+        <ThemeToggle />
 
         {/* Mobile Button */}
         <button

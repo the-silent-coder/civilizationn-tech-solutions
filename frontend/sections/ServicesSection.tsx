@@ -50,7 +50,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-black text-white py-24 px-6"
+      className="bg-background text-foreground py-24 px-6"
     >
       <div className="max-w-7xl mx-auto">
 

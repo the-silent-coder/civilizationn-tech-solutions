@@ -8,8 +8,8 @@ export default function HeroSection() {
     <section
       className="
         min-h-screen
-        bg-black
-        text-white
+        bg-background 
+        text-foreground
         px-6
         py-20
         flex
