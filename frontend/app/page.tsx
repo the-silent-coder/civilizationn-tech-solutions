@@ -12,10 +12,12 @@ import WhyChooseUs from "../sections/WhyChooseUs";
 import ProcessSection from "../sections/ProcessSection";
 import CtaBanner from "../sections/CtaBanner";
 import BackToTop from "../components/BackToTop";
+import ScrollProgress from "../components/ScrollProgress";
 
 export default function Home() {
   return (
     <main>
+      <ScrollProgress />
       <Navbar />
       <HeroSection />
       <AboutSection />
