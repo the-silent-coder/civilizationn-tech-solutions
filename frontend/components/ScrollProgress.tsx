@@ -39,7 +39,7 @@ export default function ScrollProgress() {
         fixed
         top-0
         left-0
-        z-[9999]
+        z-9999
         h-1
         w-full
         bg-transparent

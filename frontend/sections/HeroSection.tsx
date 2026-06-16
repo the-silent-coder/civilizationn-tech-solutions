@@ -2,11 +2,13 @@ import HeroBadge from "../components/HeroBadge";
 import HeroCTA from "../components/HeroCTA";
 import HeroTrustIndicators from "../components/HeroTrustIndicators";
 import HeroAnimation from "../components/HeroAnimation";
+import HeroParticles from "../components/HeroParticles";
 
 export default function HeroSection() {
   return (
     <section
       className="
+        relative
         min-h-screen
         bg-background 
         text-foreground
@@ -16,8 +18,11 @@ export default function HeroSection() {
         items-center
       "
     >
+      <HeroParticles />
       <div
         className="
+          relative
+          z-10
           max-w-7xl
           mx-auto
           grid
