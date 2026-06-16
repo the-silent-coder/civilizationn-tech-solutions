@@ -11,6 +11,7 @@ import FooterSection from "../sections/FooterSection";
 import WhyChooseUs from "../sections/WhyChooseUs";
 import ProcessSection from "../sections/ProcessSection";
 import CtaBanner from "../sections/CtaBanner";
+import BackToTop from "../components/BackToTop";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <CtaBanner />
       <ContactSection />
       <FooterSection />
+      <BackToTop />
     </main>
   );
 }

@@ -1,26 +1,76 @@
+import AnimatedCounter from "../components/AnimatedCounter";
+
+const stats = [
+  {
+    value: 50,
+    suffix: "+",
+    label: "Projects Delivered",
+  },
+  {
+    value: 25,
+    suffix: "+",
+    label: "Happy Clients",
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "Solutions Offered",
+  },
+  {
+    value: 24,
+    suffix: "/7",
+    label: "Support Availability",
+  },
+];
+
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-black text-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-4 text-center gap-8">
+    <section
+      className="
+        py-24
+        px-6
+        bg-black
+        text-white
+      "
+    >
+      <div className="max-w-6xl mx-auto">
 
-        <div>
-          <h3 className="text-4xl font-bold">50+</h3>
-          <p>Projects Delivered</p>
-        </div>
+        <div className="grid md:grid-cols-4 gap-8">
 
-        <div>
-          <h3 className="text-4xl font-bold">25+</h3>
-          <p>Happy Clients</p>
-        </div>
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="
+                text-center
+                border
+                border-cyan-500/20
+                rounded-3xl
+                p-8
+                bg-white/5
+                backdrop-blur-sm
+              "
+            >
+              <div
+                className="
+                  text-5xl
+                  font-bold
+                  text-cyan-400
+                  mb-4
+                "
+              >
+                <AnimatedCounter
+                  end={stat.value}
+                  suffix={stat.suffix}
+                />
+              </div>
 
-        <div>
-          <h3 className="text-4xl font-bold">10+</h3>
-          <p>Tech Services</p>
-        </div>
+              <p className="text-gray-400">
+                {stat.label}
+              </p>
 
-        <div>
-          <h3 className="text-4xl font-bold">24/7</h3>
-          <p>Support</p>
+            </div>
+          ))}
+
         </div>
 
       </div>
