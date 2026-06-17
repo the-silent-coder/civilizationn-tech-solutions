@@ -14,6 +14,54 @@ export default function ContactSection() {
           Reach out to us and let&apos;s discuss your next big idea.
         </p>
 
+        <div>
+          <label
+            htmlFor="name"
+            className="block mb-2 font-medium"
+          >
+            Full Name
+          </label>
+
+          <input
+            id="name"
+            type="text"
+            className="..."
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="email"
+            className="block mb-2 font-medium"
+          >
+            Email Address
+          </label>
+
+          <input
+            id="email"
+            type="email"
+            className="..."
+            placeholder="example@gmail.com"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="message"
+            className="block mb-2 font-medium"
+          >
+            Your Message
+          </label>
+
+          <textarea
+            id="message"
+            rows={5}
+            className="..."
+            placeholder="Tell us about your project..."
+          />
+        </div>
+
         <button
           className="mt-10 border px-8 py-4 rounded-lg"
         >

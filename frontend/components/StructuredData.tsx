@@ -1,7 +1,8 @@
+import Script from "next/script";
+
 export default function StructuredData() {
   const data = {
     "@context": "https://schema.org",
-
     "@type": "Organization",
 
     name: "Civilizationn Tech Solutions",
@@ -17,8 +18,10 @@ export default function StructuredData() {
   };
 
   return (
-    <script
+    <Script
+      id="organization-schema"
       type="application/ld+json"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify(data),
       }}
