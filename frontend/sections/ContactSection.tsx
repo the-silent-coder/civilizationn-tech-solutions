@@ -2,7 +2,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-gray-50 py-24 px-6"
+      className="bg-white-50 py-24 px-6"
     >
       <div className="max-w-3xl mx-auto text-center">
 
@@ -25,7 +25,18 @@ export default function ContactSection() {
           <input
             id="name"
             type="text"
-            className="..."
+            className="
+            w-full
+            rounded-xl
+            border
+            border-black-300
+            px-4
+            py-3
+            mt-1
+            focus:outline-none
+            focus:ring-2
+            focus:ring-cyan-400
+            "
             placeholder="Enter your full name"
           />
         </div>
@@ -41,7 +52,18 @@ export default function ContactSection() {
           <input
             id="email"
             type="email"
-            className="..."
+            className="
+            w-full
+            rounded-xl
+            border
+            border-black-300
+            px-4
+            py-3
+            mt-1
+            focus:outline-none
+            focus:ring-2
+            focus:ring-cyan-400
+            "
             placeholder="example@gmail.com"
           />
         </div>
@@ -57,7 +79,18 @@ export default function ContactSection() {
           <textarea
             id="message"
             rows={5}
-            className="..."
+            className="
+            w-full
+            rounded-xl
+            border
+            border-black-300
+            px-4
+            py-3
+            mt-1
+            focus:outline-none
+            focus:ring-2
+            focus:ring-cyan-400
+            "
             placeholder="Tell us about your project..."
           />
         </div>

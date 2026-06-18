@@ -5,7 +5,7 @@ export default function TestimonialsSection() {
     <FadeIn>
     <section
       id="testimonials"
-      className="bg-gray-50 py-24 px-6"
+      className="bg-white-50 py-24 px-6"
     >
       <div className="max-w-6xl mx-auto">
 

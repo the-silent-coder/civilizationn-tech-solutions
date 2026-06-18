@@ -9,15 +9,40 @@ export default function HeroParticles() {
   });
 
   const particles = useMemo(
-    () =>
-      Array.from({ length: 25 }, () => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        delay: Math.random() * 8,
-        duration: 8 + Math.random() * 8,
-      })),
-    []
-  );
+  () => [
+    {
+      left: 10,
+      top: 20,
+      delay: 0,
+      duration: 8,
+    },
+    {
+      left: 25,
+      top: 60,
+      delay: 2,
+      duration: 10,
+    },
+    {
+      left: 45,
+      top: 35,
+      delay: 1,
+      duration: 12,
+    },
+    {
+      left: 70,
+      top: 75,
+      delay: 3,
+      duration: 9,
+    },
+    {
+      left: 85,
+      top: 25,
+      delay: 4,
+      duration: 11,
+    },
+  ],
+  []
+);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {

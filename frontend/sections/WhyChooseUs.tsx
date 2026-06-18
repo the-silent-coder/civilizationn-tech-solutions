@@ -7,7 +7,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 px-6 bg-gray-950 text-white">
+    <section className="py-24 px-6 bg-white-950 text-foreground">
 
       <div className="max-w-6xl mx-auto">
 
@@ -21,7 +21,7 @@ export default function WhyChooseUs() {
             <div
               key={reason}
               className="
-                border border-white/10
+                border border-foreground
                 rounded-2xl
                 p-8
               "

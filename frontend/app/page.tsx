@@ -5,7 +5,6 @@ import ServicesSection from "../sections/ServicesSection";
 import StatsSection from "../sections/StatsSection";
 import ArticlesSection from "../sections/ArticlesSection";
 import TestimonialsSection from "../sections/TestimonialsSection";
-import PaymentsSection from "../sections/PaymentsSection";
 import ContactSection from "../sections/ContactSection";
 import FooterSection from "../sections/FooterSection";
 import WhyChooseUs from "../sections/WhyChooseUs";
@@ -27,7 +26,6 @@ export default function Home() {
       <StatsSection />
       <ArticlesSection />
       <TestimonialsSection />
-      <PaymentsSection />
       <CtaBanner />
       <ContactSection />
       <FooterSection />

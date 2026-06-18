@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
@@ -8,12 +9,30 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    "about",
-    "services",
-    "articles",
-    "testimonials",
-    "payments",
-    "contact",
+    {
+      label: "About",
+      href: "#about",
+    },
+    {
+      label: "Services",
+      href: "#services",
+    },
+    {
+      label: "Articles",
+      href: "#articles",
+    },
+    {
+      label: "Testimonials",
+      href: "#testimonials",
+    },
+    {
+      label: "Payments",
+      href: "/payments",
+    },
+    {
+      label: "Contact",
+      href: "#contact",
+    },
   ];
 
   return (
@@ -21,29 +40,38 @@ export default function Navbar() {
       <nav
         aria-label="Primary Navigation"
         className="
-          bg-background
+          bg-background/90
+          backdrop-blur-md
           text-foreground
           border-b
           border-foreground/10
           shadow-sm
-          backdrop-blur-md
         "
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
           {/* Logo */}
-          <h1 className="text-2xl font-bold">
+          <Link
+            href="/"
+            className="
+              text-xl
+              md:text-2xl
+              font-bold
+              transition-colors
+              hover:text-cyan-400
+            "
+          >
             Civilizationn Tech Solutions
-          </h1>
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className="hidden md:flex gap-6 items-center">
+
             {navItems.map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item}`}
+              <li key={item.label}>
+                <Link
+                  href={item.href}
                   className="
-                    capitalize
                     transition-colors
                     duration-200
                     hover:text-cyan-400
@@ -55,13 +83,14 @@ export default function Navbar() {
                     py-1
                   "
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               </li>
             ))}
+
           </ul>
 
-          {/* Right Side Controls */}
+          {/* Right Controls */}
           <div className="flex items-center gap-4">
 
             <ThemeToggle />
@@ -69,6 +98,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               type="button"
+              onClick={() => setIsOpen(!isOpen)}
               className="
                 md:hidden
                 p-2
@@ -79,7 +109,6 @@ export default function Navbar() {
                 focus-visible:ring-2
                 focus-visible:ring-cyan-400
               "
-              onClick={() => setIsOpen(!isOpen)}
               aria-label={
                 isOpen
                   ? "Close Navigation Menu"
@@ -88,9 +117,15 @@ export default function Navbar() {
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? (
+                <X size={24} />
+              ) : (
+                <Menu size={24} />
+              )}
             </button>
+
           </div>
+
         </div>
 
         {/* Mobile Navigation */}
@@ -103,16 +138,17 @@ export default function Navbar() {
               border-foreground/10
               px-6
               py-4
+              bg-background
             "
           >
             <ul className="space-y-4">
+
               {navItems.map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item}`}
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
                     className="
                       block
-                      capitalize
                       rounded-md
                       px-2
                       py-2
@@ -125,10 +161,11 @@ export default function Navbar() {
                     "
                     onClick={() => setIsOpen(false)}
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
+
             </ul>
           </div>
         )}
