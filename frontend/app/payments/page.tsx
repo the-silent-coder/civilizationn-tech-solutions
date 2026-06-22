@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
+
 import Navbar from "../../components/Navbar";
 import FooterSection from "../../sections/FooterSection";
+import { siteConfig } from "../../lib/site";
 
 import {
   CreditCard,
@@ -53,10 +56,28 @@ const paymentMethods = [
   },
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Payments",
   description:
-    "Secure payment portal for Civilizationn Tech Solutions",
+    "Secure payment options for Civilizationn Tech Solutions clients, including UPI, cards, net banking, wallets, and international payments.",
+  alternates: {
+    canonical: "/payments",
+  },
+  openGraph: {
+    title: `Payments | ${siteConfig.name}`,
+    description:
+      "Secure payment options for Civilizationn Tech Solutions clients.",
+    url: `${siteConfig.url}/payments`,
+    siteName: siteConfig.name,
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Payments | ${siteConfig.name}`,
+    description:
+      "Secure payment options for Civilizationn Tech Solutions clients.",
+  },
 };
 
 export default function PaymentsPage() {

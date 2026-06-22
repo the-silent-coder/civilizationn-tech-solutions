@@ -3,25 +3,38 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import Link from "next/link";
 
-import {
-  FaLinkedin,
-  FaGithub,
-  FaXTwitter,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa6";
+import { siteConfig } from "../lib/site";
+
+const quickLinks = [
+  {
+    label: "about",
+    href: "/#about",
+  },
+  {
+    label: "services",
+    href: "/#services",
+  },
+  {
+    label: "articles",
+    href: "/#articles",
+  },
+  {
+    label: "testimonials",
+    href: "/#testimonials",
+  },
+  {
+    label: "payments",
+    href: "/payments",
+  },
+  {
+    label: "contact",
+    href: "/#contact",
+  },
+];
 
 export default function FooterSection() {
-  const quickLinks = [
-    "about",
-    "services",
-    "articles",
-    "testimonials",
-    "payments",
-    "contact",
-  ];
-
   return (
     <footer
       className="
@@ -34,47 +47,44 @@ export default function FooterSection() {
       "
     >
       <div className="max-w-7xl mx-auto">
-
         <div className="grid md:grid-cols-3 gap-10">
-
-          {/* Company Information */}
           <div>
             <h3 className="text-2xl font-bold">
-              Civilizationn Tech Solutions
+              {siteConfig.name}
             </h3>
 
             <p className="mt-4 text-gray-400 leading-7">
-              Any Tech Solutions You Need,
-              We Have Your Back.
+              {siteConfig.tagline}
             </p>
 
             <div className="mt-6 space-y-3">
-
               <div className="flex items-center gap-3">
                 <Mail size={18} />
-                <span>
-                  info@civilizationntechsolutions.com
-                </span>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="hover:text-cyan-400"
+                >
+                  {siteConfig.email}
+                </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <Phone size={18} />
-                <span>
-                  +91 7004515727
-                </span>
+                <a
+                  href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
+                  className="hover:text-cyan-400"
+                >
+                  {siteConfig.phone}
+                </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <MapPin size={18} />
-                <span>
-                  India
-                </span>
+                <span>{siteConfig.location}</span>
               </div>
-
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">
               Quick Links
@@ -82,9 +92,9 @@ export default function FooterSection() {
 
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link}>
-                  <a
-                    href={`#${link}`}
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
                     className="
                       capitalize
                       transition-colors
@@ -98,72 +108,45 @@ export default function FooterSection() {
                       py-1
                     "
                   >
-                    {link}
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Social Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">
-              Connect With Us
+              Start a Conversation
             </h4>
 
-            <div className="flex gap-4">
+            <p className="text-gray-400 leading-7">
+              Have a ServiceNow, software, AI, or app idea in
+              mind? Send us a short note and we will get back to
+              you.
+            </p>
 
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin size={22} />
-              </a>
-              
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaGithub size={22} />
-              </a>
-
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaXTwitter size={22} />
-              </a>
-
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaInstagram size={22} />
-              </a>
-
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaYoutube size={22} />
-              </a>
-
-            </div>
+            <Link
+              href="/#contact"
+              className="
+                inline-flex
+                mt-6
+                rounded-xl
+                bg-cyan-500
+                px-5
+                py-3
+                font-semibold
+                text-black
+                transition-all
+                duration-300
+                hover:scale-105
+              "
+            >
+              Contact Us
+            </Link>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
         <div
           className="
             mt-10
@@ -175,10 +158,9 @@ export default function FooterSection() {
             text-gray-500
           "
         >
-          © {new Date().getFullYear()} Civilizationn Tech Solutions.
-          All rights reserved.
+          &copy; {new Date().getFullYear()} {siteConfig.name}. All
+          rights reserved.
         </div>
-
       </div>
     </footer>
   );

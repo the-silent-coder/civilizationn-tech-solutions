@@ -5,55 +5,47 @@ import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 
 import StructuredData from "../components/StructuredData";
+import { siteConfig } from "../lib/site";
 
 export const metadata: Metadata = {
   title: {
-    default: "Civilizationn Tech Solutions",
-    template: "%s | Civilizationn Tech Solutions",
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
 
-  description:
-    "Any Tech Solutions You Need, We Have Your Back. ServiceNow expertise, custom software development, AI solutions, web and mobile applications.",
+  description: siteConfig.description,
 
-  keywords: [
-    "Civilizationn Tech Solutions",
-    "ServiceNow Development",
-    "ServiceNow Consulting",
-    "Custom Software Development",
-    "Web Development",
-    "Mobile App Development",
-    "AI Solutions",
-    "Digital Transformation",
-    "IT Consulting",
-  ],
+  keywords: siteConfig.keywords,
 
   authors: [
     {
-      name: "Civilizationn Tech Solutions",
+      name: siteConfig.name,
     },
   ],
 
-  creator: "Civilizationn Tech Solutions",
+  creator: siteConfig.name,
 
-  applicationName: "Civilizationn Tech Solutions",
+  applicationName: siteConfig.name,
 
-  metadataBase: new URL("https://civilizationntechsolutions.in"),
+  metadataBase: new URL(siteConfig.url),
+
+  alternates: {
+    canonical: "/",
+  },
 
   openGraph: {
-    title: "Civilizationn Tech Solutions",
-    description:
-      "Any Tech Solutions You Need, We Have Your Back.",
-    url: "https://civilizationntechsolutions.in",
-    siteName: "Civilizationn Tech Solutions",
-    locale: "en_US",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: "en_IN",
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Civilizationn Tech Solutions",
-    description:
-      "Future-ready technology solutions for modern businesses.",
+    title: siteConfig.name,
+    description: siteConfig.description,
   },
 
   robots: {

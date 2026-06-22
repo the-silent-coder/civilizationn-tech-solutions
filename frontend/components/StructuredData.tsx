@@ -1,20 +1,33 @@
 import Script from "next/script";
+import { siteConfig } from "../lib/site";
 
 export default function StructuredData() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
 
-    name: "Civilizationn Tech Solutions",
+    name: siteConfig.name,
 
-    slogan: "Any Tech Solutions You Need, We Have Your Back.",
+    slogan: siteConfig.tagline,
 
-    url: "https://example.com",
+    url: siteConfig.url,
 
-    description:
-      "Technology consulting and software solutions company.",
+    email: siteConfig.email,
 
-    sameAs: [],
+    telephone: siteConfig.phone,
+
+    areaServed: siteConfig.location,
+
+    description: siteConfig.description,
+
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
   };
 
   return (
