@@ -18,3 +18,34 @@ model ContactRequest {
   message   String
   createdAt DateTime @default(now())
 }
+
+model Employee {
+  id        String    @id @default(cuid())
+  name      String
+  email     String    @unique
+  role      String
+  createdAt DateTime  @default(now())
+  articles  Article[]
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  excerpt   String?
+  authorId  String
+  rating    Float?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  author Employee @relation(fields: [authorId], references: [id])
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  clientName  String
+  companyName String?
+  feedback    String
+  approved    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}

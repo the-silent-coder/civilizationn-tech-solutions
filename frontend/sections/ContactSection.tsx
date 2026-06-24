@@ -101,7 +101,7 @@ export default function ContactSection() {
           </h2>
 
           <p className="mt-6 text-gray-600 dark:text-gray-400">
-            Reach out to us and let&apos;s discuss your next big idea.
+            Have a ServiceNow, software, AI, or app idea in mind? Send us a short note and we will get back to you.
           </p>
         </div>
 
