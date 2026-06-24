@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createArticle } from "@/lib/actions/article-actions";
 
 export default function NewArticlePage() {
   const [title, setTitle] = useState("");
@@ -8,16 +9,24 @@ export default function NewArticlePage() {
   const [content, setContent] = useState("");
 
   const handleSubmit = async (
-    e: React.FormEvent
-  ) => {
-    e.preventDefault();
+  e: React.FormEvent
+) => {
+  e.preventDefault();
 
-    console.log({
-      title,
-      excerpt,
-      content,
-    });
-  };
+  const result = await createArticle({
+    title,
+    excerpt,
+    content,
+  });
+
+  console.log(result);
+
+  if (result.success) {
+  alert("Article Saved Successfully");
+  } else {
+  alert("Failed To Save Article");
+  }
+};
 
   return (
     <div>

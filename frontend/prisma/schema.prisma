@@ -57,7 +57,7 @@ model Article {
 
   coverImage String?
 
-  authorId String
+  authorId String?
 
   rating    Float?
   published Boolean @default(false)
@@ -65,7 +65,7 @@ model Article {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  author Employee @relation(fields: [authorId], references: [id])
+  author Employee? @relation(fields: [authorId], references: [id])
 }
 
 model Testimonial {
