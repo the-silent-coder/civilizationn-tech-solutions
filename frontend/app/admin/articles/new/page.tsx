@@ -1,13 +1,34 @@
+"use client";
+
+import { useState } from "react";
+
 export default function NewArticlePage() {
+  const [title, setTitle] = useState("");
+  const [excerpt, setExcerpt] = useState("");
+  const [content, setContent] = useState("");
+
+  const handleSubmit = async (
+    e: React.FormEvent
+  ) => {
+    e.preventDefault();
+
+    console.log({
+      title,
+      excerpt,
+      content,
+    });
+  };
+
   return (
     <div>
-
       <h1 className="text-3xl font-bold mb-8">
         Create Article
       </h1>
 
-      <form className="space-y-6">
-
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-6"
+      >
         <div>
           <label className="block mb-2">
             Title
@@ -15,6 +36,10 @@ export default function NewArticlePage() {
 
           <input
             type="text"
+            value={title}
+            onChange={(e) =>
+              setTitle(e.target.value)
+            }
             className="
               w-full
               border
@@ -32,6 +57,10 @@ export default function NewArticlePage() {
 
           <textarea
             rows={3}
+            value={excerpt}
+            onChange={(e) =>
+              setExcerpt(e.target.value)
+            }
             className="
               w-full
               border
@@ -49,6 +78,10 @@ export default function NewArticlePage() {
 
           <textarea
             rows={12}
+            value={content}
+            onChange={(e) =>
+              setContent(e.target.value)
+            }
             className="
               w-full
               border
@@ -71,9 +104,7 @@ export default function NewArticlePage() {
         >
           Save Article
         </button>
-
       </form>
-
     </div>
   );
 }
