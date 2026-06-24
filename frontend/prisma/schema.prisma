@@ -11,21 +11,41 @@ datasource db {
   provider = "postgresql"
 }
 
+enum LeadStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  WON
+  LOST
+}
+
 model ContactRequest {
-  id        String   @id @default(cuid())
-  name      String
-  email     String
-  message   String
+  id          String  @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  companyName String?
+  message     String
+
+  status LeadStatus @default(NEW)
+
   createdAt DateTime @default(now())
 }
 
+enum Role {
+  ADMIN
+  EMPLOYEE
+}
+
 model Employee {
-  id        String    @id @default(cuid())
-  name      String
-  email     String    @unique
-  role      String
-  createdAt DateTime  @default(now())
-  articles  Article[]
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role
+  createdAt    DateTime @default(now())
+
+  articles Article[]
 }
 
 model Article {
