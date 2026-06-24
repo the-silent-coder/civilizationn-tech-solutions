@@ -49,14 +49,21 @@ model Employee {
 }
 
 model Article {
-  id        String   @id @default(cuid())
-  title     String
-  content   String
-  excerpt   String?
-  authorId  String
+  id      String  @id @default(cuid())
+  title   String
+  slug    String  @unique
+  excerpt String?
+  content String
+
+  coverImage String?
+
+  authorId String
+
   rating    Float?
-  published Boolean  @default(false)
+  published Boolean @default(false)
+
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   author Employee @relation(fields: [authorId], references: [id])
 }
