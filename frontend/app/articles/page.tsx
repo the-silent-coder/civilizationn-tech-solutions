@@ -1,265 +1,120 @@
-"use client";
+import Link from "next/link";
 
-import { useState } from "react";
+import Navbar from "@/components/Navbar";
+import FooterSection from "@/sections/FooterSection";
 
-import Navbar from "../../components/Navbar";
-import FooterSection from "../../sections/FooterSection";
+import { getPublishedArticles }
+from "@/lib/actions/article-queries";
 
-const articles = [
-  {
-    id: 1,
-    title: "The Future of ServiceNow Development",
-    excerpt:
-      "Explore how ServiceNow is transforming enterprise workflows through automation and AI-powered experiences.",
+export default async function ArticlesPage() {
 
-    content: `
-ServiceNow continues to evolve as one of the most powerful enterprise platforms available today.
-
-Organizations are increasingly adopting ServiceNow not only for ITSM but also for HRSD, ITOM, CSM, SPM and AI-driven workflows.
-
-With the introduction of AI Agents and Generative AI capabilities, businesses can automate repetitive tasks, improve employee productivity and reduce operational costs.
-
-For modern enterprises, ServiceNow has become a strategic platform rather than simply a ticketing tool.
-
-The future of ServiceNow development will revolve around AI integration, hyper automation, low-code development and enterprise-wide digital transformation.
-`,
-  },
-
-  {
-    id: 2,
-    title: "Building Scalable Web Applications",
-    excerpt:
-      "Discover key architectural principles that help businesses build modern scalable applications.",
-
-    content: `
-Scalable web applications require strong architectural planning.
-
-Developers should focus on modular design, reusable components, API-first architecture and cloud-native deployment models.
-
-Performance optimization, caching strategies and database optimization are critical for handling increasing user traffic.
-
-Modern frameworks such as Next.js enable developers to create fast and SEO-friendly web experiences.
-
-Businesses investing in scalable architectures gain long-term flexibility and reduced maintenance costs.
-`,
-  },
-
-  {
-    id: 3,
-    title: "AI Solutions for Modern Businesses",
-    excerpt:
-      "Learn how artificial intelligence is helping organizations accelerate growth and innovation.",
-
-    content: `
-Artificial Intelligence is becoming a core business enabler.
-
-From intelligent chatbots to predictive analytics and process automation, AI technologies are transforming operations across industries.
-
-Organizations can improve customer experiences, reduce manual effort and make data-driven decisions faster.
-
-Successful AI adoption requires clear objectives, quality data and continuous optimization.
-
-Companies that embrace AI early often gain a significant competitive advantage.
-`,
-  },
-];
-
-
-
-export default function ArticlesPage() {
-  const [expandedArticle, setExpandedArticle] =
-    useState<number | null>(null);
+  const articles =
+    await getPublishedArticles();
 
   return (
     <>
       <Navbar />
 
-      <main
-        className="
-          min-h-screen
-          bg-background
-          text-foreground
-        "
-      >
-        {/* Hero Section */}
-        <section
-          className="
-            py-24
-            px-6
-            border-b
-            border-foreground/10
-          "
-        >
-          <div className="max-w-7xl mx-auto text-center">
+      <main className="min-h-screen">
 
-            <div
-              className="
-                inline-flex
-                px-4
-                py-2
-                rounded-full
-                border
-                border-cyan-500/40
-                bg-cyan-500/10
-                text-cyan-400
-                mb-6
-              "
-            >
-              Knowledge Hub
-            </div>
-
-            <h1
-              className="
-                text-5xl
-                md:text-7xl
-                font-bold
-              "
-            >
-              Articles & Insights
-            </h1>
-
-            <p
-              className="
-                mt-8
-                text-lg
-                max-w-3xl
-                mx-auto
-                text-gray-500
-                dark:text-gray-400
-              "
-            >
-              Explore expert insights, industry trends and
-              practical knowledge shared by Civilizationn
-              Tech Solutions.
-            </p>
-
-          </div>
-        </section>
-
-        {/* Articles Section */}
-
-        <section className="py-24 px-6">
+        <section className="py-20 px-6">
 
           <div className="max-w-7xl mx-auto">
 
-            <div className="grid gap-10">
+            <h1 className="text-5xl font-bold text-center">
+              Articles
+            </h1>
 
-              {articles.map((article) => {
-                const isExpanded =
-                  expandedArticle === article.id;
+            <p className="text-center mt-4 text-foreground/70">
+              Insights, updates and knowledge
+              from Civilizationn Tech Solutions.
+            </p>
 
-                return (
-                  <div
-                    key={article.id}
+            <div className="
+              mt-16
+              grid
+              grid-cols-1
+              md:grid-cols-2
+              xl:grid-cols-4
+              gap-8
+            ">
+
+              <p className="text-red-500 text-center mb-8">
+                Articles Found: {articles.length}
+              </p>
+
+              {articles.map((article) => (
+
+                <Link
+                  key={article.id}
+                  href={`/articles/${article.slug}`}
+                >
+                  <article
                     className="
+                      h-350px
+                      rounded-2xl
+                      overflow-hidden
+                      relative
+                      group
                       border
-                      border-foreground/10
-                      rounded-3xl
-                      bg-white
-                      dark:bg-neutral-900
-                      p-8
-                      transition-all
-                      duration-500
-                      shadow-sm
+                      border-white/10
                     "
                   >
-                    <h2
+
+                    <img
+                      src={
+                        article.coverImage ??
+                        "/images/default-article.jpg"
+                      }
+                      alt={article.title}
                       className="
-                        text-3xl
-                        text-black
-                        dark:text-white
-                        font-bold
-                        mb-4
+                        absolute
+                        inset-0
+                        h-full
+                        w-full
+                        object-cover
+                        group-hover:scale-110
+                        transition-all
+                        duration-700
+                      "
+                    />
+
+                    <div
+                      className="
+                        absolute
+                        inset-0
+                        bg-black/60
+                      "
+                    />
+
+                    <div
+                      className="
+                        absolute
+                        bottom-0
+                        p-6
+                        z-10
                       "
                     >
-                      {article.title}
-                    </h2>
+                      <h2 className="
+                        text-2xl
+                        font-bold
+                        text-white
+                      ">
+                        {article.title}
+                      </h2>
 
-                    {!isExpanded && (
-                      <>
-                        <p
-                          className="
-                            text-black
-                            dark:text-white
-                            leading-8
-                          "
-                        >
-                          {article.excerpt}
-                        </p>
+                      <p className="
+                        text-white/80
+                        mt-3
+                      ">
+                        {article.excerpt}
+                      </p>
+                    </div>
 
-                        <button
-                          onClick={() =>
-                            setExpandedArticle(article.id)
-                          }
-                          className="
-                            mt-6
-                            text-cyan-400
-                            font-semibold
-                            hover:underline
-                          "
-                        >
-                          See More →
-                        </button>
-                      </>
-                    )}
+                  </article>
+                </Link>
 
-                    {isExpanded && (
-                      <div
-                        className="
-                          max-w-[794px]
-                          mx-auto
-                          min-h-[1123px]
-                          bg-background
-                          mt-8
-                          rounded-2xl
-                          border
-                          border-foreground/10
-                          p-10
-                        "
-                      >
-                        <div
-                          className="
-                            prose
-                            dark:prose-invert
-                            max-w-none
-                          "
-                        >
-                          <h1 className="mb-8">
-                            {article.title}
-                          </h1>
-
-                          <p
-                            className="
-                              whitespace-pre-line
-                              text-lg
-                              leading-9
-                            "
-                          >
-                            {article.content}
-                          </p>
-                        </div>
-
-                        <button
-                          onClick={() =>
-                            setExpandedArticle(null)
-                          }
-                          className="
-                            mt-12
-                            px-6
-                            py-3
-                            rounded-xl
-                            bg-cyan-500
-                            text-black
-                            font-semibold
-                          "
-                        >
-                          Close Article
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+              ))}
 
             </div>
 

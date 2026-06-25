@@ -49,9 +49,11 @@ model Employee {
 }
 
 model Article {
-  id      String  @id @default(cuid())
-  title   String
-  slug    String  @unique
+  id String @id @default(cuid())
+
+  title String
+  slug  String @unique
+
   excerpt String?
   content String
 

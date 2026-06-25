@@ -61,8 +61,8 @@ export default function ArticlesSection() {
                 key={article.id}
                 className="
                   mx-4
-                  w-[350px]
-                  h-[240px]
+                  w-350px
+                  h-240px
                   rounded-3xl
                   border
                   border-cyan-500/20
