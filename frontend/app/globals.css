@@ -1,26 +1,392 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* ==============================
+     Background Colors
+  ============================== */
+
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-secondary: #f1f5f9;
+
+  /* ==============================
+     Text Colors
+  ============================== */
+
+  --foreground: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  /* ==============================
+     Brand Colors
+  ============================== */
+
+  --primary: #00d4ff;
+  --primary-hover: #00b8de;
+
+  --secondary: #00ffa3;
+  --secondary-hover: #00d58a;
+
+  /* ==============================
+     Status Colors
+  ============================== */
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+
+  /* ==============================
+     Borders
+  ============================== */
+
+  --border: rgba(15, 23, 42, .08);
+  --border-hover: rgba(0, 212, 255, .30);
+
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+
+  /* ==============================
+     Background Colors
+  ============================== */
+
+  --background: #07111f;
+  --surface: #101d2e;
+  --surface-secondary: #16263d;
+
+  /* ==============================
+     Text Colors
+  ============================== */
+
+  --foreground: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  /* ==============================
+     Brand Colors
+  ============================== */
+
+  --primary: #00d4ff;
+  --primary-hover: #38e0ff;
+
+  --secondary: #00ffa3;
+  --secondary-hover: #38ffb9;
+
+  /* ==============================
+     Status Colors
+  ============================== */
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #60a5fa;
+
+  /* ==============================
+     Borders
+  ============================== */
+
+  --border: rgba(255, 255, 255, .08);
+  --border-hover: rgba(0, 212, 255, .35);
+
+}
+
+/* ============================================
+   SURFACE UTILITIES
+============================================ */
+
+.surface {
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+}
+
+.surface-secondary {
+
+  background: var(--surface-secondary);
+
+  border: 1px solid var(--border);
+
+}
+
+/* ============================================
+   GLASS CARD
+============================================ */
+
+.glass {
+
+  background: var(--glass-bg);
+
+  backdrop-filter: var(--glass-blur);
+
+  border: 1px solid var(--glass-border);
+
+}
+
+/* ============================================
+   SHADOW UTILITIES
+============================================ */
+
+.shadow-brand {
+
+  box-shadow: var(--shadow-md);
+
+}
+
+.shadow-glow {
+
+  box-shadow: var(--shadow-glow);
+
+}
+
+.shadow-hover:hover {
+
+  box-shadow: var(--shadow-hover);
+
 }
 
 @theme inline {
+
   --color-background: var(--background);
+
+  --color-surface: var(--surface);
+
+  --color-surface-secondary: var(--surface-secondary);
+
   --color-foreground: var(--foreground);
+
+  --color-text-secondary: var(--text-secondary);
+
+  --color-text-muted: var(--text-muted);
+
+  --color-primary: var(--primary);
+
+  --color-primary-hover: var(--primary-hover);
+
+  --color-secondary: var(--secondary);
+
+  --color-secondary-hover: var(--secondary-hover);
+
+  --color-border: var(--border);
+
+  --color-border-hover: var(--border-hover);
+
   --font-sans: var(--font-geist-sans);
+
   --font-mono: var(--font-geist-mono);
+
+}
+
+/* ============================================
+   SPACING SYSTEM
+============================================ */
+
+:root {
+
+  --space-xs: .5rem;
+
+  --space-sm: .75rem;
+
+  --space-md: 1rem;
+
+  --space-lg: 1.5rem;
+
+  --space-xl: 2rem;
+
+  --space-2xl: 3rem;
+
+  --space-3xl: 4rem;
+
+  --space-4xl: 6rem;
+
+  --space-5xl: 8rem;
+
+}
+
+/* ============================================
+   BORDER RADIUS
+============================================ */
+
+:root {
+
+  --radius-xs: .5rem;
+
+  --radius-sm: .75rem;
+
+  --radius-md: 1rem;
+
+  --radius-lg: 1.25rem;
+
+  --radius-xl: 1.5rem;
+
+  --radius-2xl: 2rem;
+
+  --radius-full: 999px;
+
+}
+
+/* ============================================
+   SHADOW SYSTEM
+============================================ */
+
+:root {
+
+  --shadow-sm:
+    0 4px 12px rgba(0, 0, 0, .08);
+
+  --shadow-md:
+    0 10px 30px rgba(0, 0, 0, .18);
+
+  --shadow-lg:
+    0 20px 60px rgba(0, 0, 0, .28);
+
+  --shadow-glow:
+    0 0 30px rgba(0, 212, 255, .25);
+
+  --shadow-hover:
+    0 30px 70px rgba(0, 212, 255, .20);
+
+}
+
+/* ============================================
+   GLASSMORPHISM
+============================================ */
+
+:root {
+
+  --glass-bg:
+
+    rgba(255, 255, 255, .05);
+
+  --glass-border:
+
+    rgba(255, 255, 255, .08);
+
+  --glass-blur:
+
+    blur(20px);
+
 }
 
 body {
+
   background: var(--background);
+
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: var(--font-geist-sans);
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  letter-spacing: -0.01em;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.03em;
+
+  text-wrap: balance;
+
+}
+
+p {
+
+  color: var(--text-secondary);
+
+  line-height: 1.8;
+
+  max-width: 75ch;
+
+}
+
+/* ============================================
+   PREMIUM GRADIENT
+============================================ */
+
+.gradient-brand {
+
+  background:
+    linear-gradient(135deg,
+      var(--primary),
+      var(--secondary));
+
+}
+
+/* ============================================
+   SMOOTH HOVER
+============================================ */
+
+.hover-lift {
+
+  transition:
+
+    transform .35s ease,
+
+    box-shadow .35s ease;
+
+}
+
+.hover-lift:hover {
+
+  transform:
+
+    translateY(-8px);
+
+}
+
+::selection {
+
+  background: var(--primary);
+
+  color: #07111F;
+
+}
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+
+}
+
+button {
+
+  font: inherit;
+
+}
+
+input,
+textarea,
+select {
+
+  font: inherit;
+
 }
 
 html {
@@ -64,6 +430,38 @@ html {
 :focus-visible {
   outline: 2px solid rgb(34, 211, 238);
   outline-offset: 3px;
+}
+
+.container-custom {
+
+  width: min(1400px, calc(100% - 3rem));
+
+  margin-inline: auto;
+
+}
+
+.section-padding {
+
+  padding-block: 7rem;
+
+}
+
+.section-title {
+
+  font-size: clamp(2.2rem, 4vw, 4rem);
+
+  font-weight: 800;
+
+  line-height: 1.1;
+
+}
+
+.section-subtitle {
+
+  font-size: clamp(1rem, 2vw, 1.25rem);
+
+  color: var(--text-secondary);
+
 }
 
 @media (prefers-reduced-motion: reduce) {
