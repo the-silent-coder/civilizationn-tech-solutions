@@ -25,16 +25,19 @@ export const heroContent = {
 
     stats: [
         {
-            value: "50+",
-            label: "Projects",
+            end: 3,
+            suffix: "+",
+            label: "Years Experience",
         },
         {
-            value: "100%",
-            label: "Client Focus",
+            end: 6,
+            suffix: "+",
+            label: "ServiceNow Certifications",
         },
         {
-            value: "24/7",
-            label: "Support",
+            end: 24,
+            suffix: "/7",
+            label: "Technical Support",
         },
     ],
 };

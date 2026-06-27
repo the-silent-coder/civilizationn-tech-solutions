@@ -7,19 +7,17 @@ export default function HeroAnimation() {
   return (
     <div
       className="
-        h-150
-        w-full
-        rounded-3xl
-        border
-        border-cyan-500/20
-        bg-linear-to-br
-        from-cyan-500/10
-        via-transparent
-        to-purple-500/10
+        relative
+        mx-auto
         flex
+        w-full
         items-center
         justify-center
-        p-8
+        overflow-hidden
+        rounded-32px
+        p-4
+        sm:p-6
+        lg:p-8
       "
     >
       <Lottie

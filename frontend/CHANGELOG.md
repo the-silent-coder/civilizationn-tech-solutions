@@ -30,3 +30,12 @@ All notable changes to this project will be documented here.
 - Hero Experience 2.0
 - Services Redesign
 - Articles Redesign
+
+### Changed
+
+- Centralized hero and navigation content into reusable constants.
+- Standardized UI imports using barrel exports.
+- Improved navbar architecture and responsive behavior.
+- Updated structured data implementation for Next.js App Router.
+- Resolved runtime, build, and JSX parsing issues.
+- Stabilized the project architecture before UI enhancements.
