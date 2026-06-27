@@ -1,4 +1,5 @@
 import FadeIn from "../components/FadeIn";
+import { SectionHeading } from "@/components/ui";
 
 export default function AboutSection() {
   return (
@@ -7,15 +8,15 @@ export default function AboutSection() {
         id="about"
         className="py-24 px-6 max-w-6xl mx-auto"
       >
-        <h2 className="text-4xl font-bold mb-6">
-          About Us
-        </h2>
-
-        <p className="text-gray-600 leading-8">
-          Civilizationn Tech Solutions is committed to delivering
-          innovative technology solutions that empower businesses
-          to thrive in the digital era.
-        </p>
+        <SectionHeading
+          badge="Who We Are"
+          title="Engineering Digital Transformation with Purpose"
+          subtitle="
+            Civilizationn Tech Solutions delivers innovative software,
+            ServiceNow expertise, AI-powered solutions and digital products
+            that help organizations build for the future.
+          "
+        />
       </section>
     </FadeIn>
   );

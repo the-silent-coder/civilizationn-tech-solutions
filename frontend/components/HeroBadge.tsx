@@ -1,3 +1,6 @@
+
+import { heroContent } from "@/constants/hero";
+
 export default function HeroBadge() {
   return (
     <div
@@ -17,9 +20,9 @@ export default function HeroBadge() {
         mb-8
       "
     >
-      <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-
-      Future-Ready Technology Partner
+      <span>
+        {heroContent.badge}
+      </span>
     </div>
   );
 }

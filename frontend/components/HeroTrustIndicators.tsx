@@ -1,15 +1,9 @@
-const indicators = [
-  "ServiceNow Expertise",
-  "Custom Development",
-  "End-to-End Support",
-  "Future-Ready Solutions",
-];
+import { heroContent } from "@/constants/hero";
 
 export default function HeroTrustIndicators() {
   return (
     <div className="mt-12 flex flex-wrap gap-4">
-
-      {indicators.map((indicator) => (
+      {heroContent.trustIndicators.map((indicator) => (
         <div
           key={indicator}
           className="
@@ -25,7 +19,6 @@ export default function HeroTrustIndicators() {
           ✓ {indicator}
         </div>
       ))}
-
     </div>
   );
 }

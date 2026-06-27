@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, Hexagon } from "lucide-react";
 
 import ThemeToggle from "./ThemeToggle";
-import { NAV_ITEMS } from "../constants/navigation";
+import { navigationItems } from "@/constants/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -147,7 +147,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center gap-2">
 
-            {NAV_ITEMS.map((item) => (
+            {navigationItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
@@ -256,7 +256,7 @@ export default function Navbar() {
           >
             <ul className="space-y-4">
 
-              {NAV_ITEMS.map((item) => (
+              {navigationItems.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}

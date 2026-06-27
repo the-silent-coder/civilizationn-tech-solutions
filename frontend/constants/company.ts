@@ -1,25 +1,15 @@
-export const COMPANY = {
+export const company = {
+    name: "Civilizationn Tech Solutions",
 
-    name:
+    tagline: "Engineering Digital Transformation with Purpose",
 
-        "Civilizationn Tech Solutions",
+    email: "contactcivilizationn@cts.com",
 
-    tagline:
+    phone: "+91 7004515727",
 
-        "Any Tech Solutions You Need, We Have Your Back.",
+    location: "Muzaffarpur, Bihar, India, 842001",
 
-    email:
+    founded: "2026",
 
-        "...",
-
-    phone:
-
-        "...",
-
-    address:
-
-        "...",
-
-    socials: {}
-
-}
+    slogan: "Any Tech Solutions You Need, We Have Your Back.",
+};

@@ -3,6 +3,8 @@ import HeroCTA from "../components/HeroCTA";
 import HeroTrustIndicators from "../components/HeroTrustIndicators";
 import HeroAnimation from "../components/HeroAnimation";
 import HeroParticles from "../components/HeroParticles";
+import { Container } from "@/components/ui";
+import { heroContent } from "@/constants/hero";
 
 export default function HeroSection() {
   return (
@@ -19,12 +21,10 @@ export default function HeroSection() {
       "
     >
       <HeroParticles />
-      <div
+      <Container
         className="
           relative
           z-10
-          max-w-7xl
-          mx-auto
           grid
           lg:grid-cols-2
           gap-16
@@ -44,11 +44,7 @@ export default function HeroSection() {
               leading-tight
             "
           >
-            Engineering Tomorrow&apos;s
-
-            <span className="block text-cyan-400">
-              Digital Success Stories
-            </span>
+            {heroContent.title}
           </h1>
 
           <p
@@ -59,9 +55,7 @@ export default function HeroSection() {
               leading-8
             "
           >
-            From ServiceNow solutions to custom
-            applications, we transform ambitious ideas
-            into scalable realities.
+            {heroContent.subtitle}
           </p>
 
           <HeroCTA />
@@ -72,7 +66,7 @@ export default function HeroSection() {
 
         <HeroAnimation />
 
-      </div>
+      </Container>
     </section>
   );
 }
